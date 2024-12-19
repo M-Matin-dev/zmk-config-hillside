@@ -8,6 +8,7 @@ features:
   - keys
   - encoder
   - underglow
+  - studio
 siblings:
   - hillside52_left
   - hillside52_right

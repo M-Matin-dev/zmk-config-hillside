@@ -10,12 +10,14 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 
-#define QWERTY_L 0
-#define DVORAK_L 1
-#define COLEMK_L 2
-#define NAV_L    3
-#define SYM_L    4
-#define ADJ_L    5
+#define DEFAULT_L 0
+#define NUM_L     1
+#define SYM_L     2
+#define NAV_L     3
+#define FN_L      4
+#define ADJ_L     5
+#define RES1_L    6
+#define RES2_L    7
 
 #define Undo   LC(Z)
 #define Cut    LC(X)
@@ -29,42 +31,48 @@
                 compatible = "zmk,keymap";
 
                 default_layer {
-/* QWERTY
+                        display-name = "Base";
+
+/* DEFAULT
  * -------------------------------------------------------------------------------------------------------------------------------------
- * | `     |   Q   |   W   |   E   |   R   |   T   |-----------------------------------|   Y   |   U   |   I   |   O   |   P   | BKSPC |
+ * | ESC   |   Q   |   W   |   E   |   R   |   T   |-----------------------------------|   Y   |   U   |   I   |   O   |   P   | BKSPC |
  * | TAB   |   A   |   S   |   D   |   F   |   G   |-----------------------------------|   H   |   J   |   K   |   L   |   ;   | ENTER |
- * | SHIFT |   Z   |   X   |   C   |   V   |   B   |   '   |-------------------|   /   |   N   |   M   |   ,   |   .   |  Up   | SHIFT |
- * | Mute  |  ESC  | CTRL  |-------|  GUI  |  ALT  |SK SHFT|  Nav  |---|  Sym  | SPACE |  ALT  |  GUI  |-------| Left  | Down  | Right |
+ * | SHIFT |   Z   |   X   |   C   |   V   |   B   |  ???  |-------------------|  ???  |   N   |   M   |   ,   |   .   |   /   | SHIFT |
+ * | CTRL  |  GUI  |  ALT  |-------|  ???  |  ???  | SPACE |  ???  |---|  ???  |  ???  |  ???  |  ???  |-------|  ALT  |  GUI  | CTRL  |
+ Mute        &kp  C_MUTE   
+`            &kp  GRAVE
  */
                         bindings = <
-&kp  GRAVE    &kp  Q        &kp  W        &kp  E        &kp  R        &kp  T                                                                         &kp  Y        &kp  U        &kp  I        &kp  O        &kp  P        &kp  BSPC
+&kp  ESC      &kp  Q        &kp  W        &kp  E        &kp  R        &kp  T                                                                         &kp  Y        &kp  U        &kp  I        &kp  O        &kp  P        &kp  BSPC
 &kp  TAB      &kp  A        &kp  S        &kp  D        &kp  F        &kp  G                                                                         &kp  H        &kp  J        &kp  K        &kp  L        &kp  SEMI     &kp  ENTER
-&kp  LSHFT    &kp  Z        &kp  X        &kp  C        &kp  V        &kp  B        &kp  SQT                                           &kp  SLASH    &kp  N        &kp  M        &kp  COMMA    &kp  DOT      &kp  UP       &kp  RSHFT
-&kp  C_MUTE   &kp  ESC      &kp  LCTRL                  &kp  LGUI     &kp  LALT     &sk  LSHIFT    &mo  NAV_L            &mo  SYM_L    &kp  SPACE    &kp  LALT     &kp  RGUI                   &kp  LEFT     &kp  DOWN     &kp  RIGHT
+&kp  LSHFT    &kp  Z        &kp  X        &kp  C        &kp  V        &kp  B        &none                                              &none         &kp  N        &kp  M        &kp  COMMA    &kp  DOT      &kp  SLASH    &kp  RSHFT
+&kp  LCTRL    &kp LGUI      &kp LALT                    &none         &none         &kp SPACE      &none                 &none         &none         &none         &none                       &kp  RALT     &kp  RGUI     &kp  LCTRL
                         >;
 			
                         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
                 };
 		
-                dvorak_layer {
-/* DVORAK
+                number_layer {
+                        display_name = "Numbers";
+/* Numbers
  * -------------------------------------------------------------------------------------------------------------------------------------
- * | `     |   '   |   ,   |   .   |   P   |   Y   |-----------------------------------|   F   |   G   |   C   |   R   |   L   | BKSPC |
- * | TAB   |   A   |   O   |   E   |   U   |   I   |-----------------------------------|   D   |   H   |   T   |   N   |   S   | ENTER |
- * | SHIFT |   ;   |   Q   |   J   |   K   |   X   |   Z   |-------------------|   /   |   B   |   M   |   W   |   V   |  Up   | SHIFT |
- * | Mute  |  ESC  | CTRL  |-------|  GUI  |  ALT  |SK SHFT|  Nav  |---|  Sym  | SPACE |  ALT  |  GUI  |-------| Left  | Down  | Right |
+ * | trans |       |   7   |   8   |   9   |       |-----------------------------------|       |       |       |       |       | trans |
+ * | trans |       |   4   |   5   |   6   |       |-----------------------------------|       |       |       |       |       | trans |
+ * | trans |       |   1   |   2   |   3   |       |  ???  |-------------------|  ???  |       |       |       |       |       | trans |
+ * | trans | trans | trans |-------|   0   |   .   | SPACE |  ???  |---|  ???  |  ???  |  ???  |  ???  |-------| trans | trans | trans |
  */
                         bindings = <
-&kp  GRAVE    &kp  SQT      &kp  COMMA    &kp  DOT      &kp  P        &kp  Y                                                                         &kp  F        &kp  G        &kp  C        &kp  R        &kp  L        &kp  BSPC
-&kp  TAB      &kp  A        &kp  O        &kp  E        &kp  U        &kp  I                                                                         &kp  D        &kp  H        &kp  T        &kp  N        &kp  S        &kp  ENTER
-&kp  LSHFT    &kp  SEMI     &kp  Q        &kp  J        &kp  K        &kp  X        &kp  Z                                             &kp  SLASH    &kp  B        &kp  M        &kp  W        &kp  V        &kp  UP       &kp  RSHFT
-&kp  C_MUTE   &kp  ESC      &kp  LCTRL                  &kp  LGUI     &kp  LALT     &sk  LSHIFT    &mo  NAV_L            &mo  SYM_L    &kp  SPACE    &kp  LALT     &kp  RGUI                   &kp  LEFT     &kp  DOWN     &kp  RIGHT
+&trans        &none         &kp  N7       &kp  N8       &kp  N9       &kp  T                                                                         &kp  Y        &kp  U        &kp  I        &kp  O        &kp  P        &trans
+&trans        &none         &kp  N4       &kp  N5       &kp  N6       &kp  I                                                                         &kp  D        &kp  H        &kp  T        &kp  N        &kp  S        &trans
+&trans        &none         &kp  N1       &kp  N2       &kp  N3       &kp  X        &kp  Z                                             &kp  SLASH    &kp  B        &kp  M        &kp  W        &kp  V        &kp  UP       &trans
+&trans        &trans        &trans                      &kp  N0       &kp  DOT      &trans         &none                 &none         &none         &kp  LALT     &none                       &trans        &trans        &trans
                         >;
 			
                         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
                 };
 		
-                colemak_layer {
+                symbol_layer {
+                        display_name = "symbols";
 /* COLEMAK-DH
  * -------------------------------------------------------------------------------------------------------------------------------------
  * | `     |   Q   |   W   |   F   |   P   |   B   |-----------------------------------|   J   |   L   |   U   |   Y   |   ;   | BKSPC |
@@ -122,16 +130,16 @@
                 adj_layer {
 /* ADJUST
  * -------------------------------------------------------------------------------------------------------------------------------------
- * |       | QWERTY| DVORAK| COLEMK|       |       |-----------------------------------|       |Prt Scr|       | EP_OFF| EP_ON |       |
+ * |       | DEFAULT| DVORAK| COLEMK|       |       |-----------------------------------|       |Prt Scr|       | EP_OFF| EP_ON |       |
  * |       | BT 0  | BT 1  | BT 2  | BT 3  | BT 4  |-----------------------------------|       |       |       |       |       |       |
  * | BOOTL | RESET |       |OUT_USB|OUT_BLE|       |BT CLR |-------------------|       |       |       |       |       |       | SHIFT |
  * ----------------|       |-------|       |       |       |       |---|       |       |       |       |-------| CTRL  |----------------
  */
                         bindings = <
-&none         &to  QWERTY_L &to  DVORAK_L &to  COLEMK_L &none         &none                                                                             &none             &kp PRINTSCREEN    &none         &ext_power EP_OFF  &ext_power EP_ON &none
-&none         &bt  BT_SEL 0 &bt  BT_SEL 1 &bt  BT_SEL 2 &bt  BT_SEL 3 &bt  BT_SEL 4                                                                     &none             &none              &none            &none           &none            &none
-&bootloader   &sys_reset    &none         &out OUT_USB  &out OUT_BLE  &none         &bt BT_CLR                                         &none            &none             &none              &none            &none           &none            &trans
-&none         &none         &trans                      &trans        &trans        &trans        &trans                 &trans        &trans           &trans            &trans                              &kp  RCTRL      &none            &none
+&none         &to DEFAULT_L &to  NUM_L    &to  SYM_L    &none         &none                                                                             &none             &kp PRINTSCREEN    &none            &ext_power EP_OFF  &ext_power EP_ON &none
+&none         &bt BT_SEL 0  &bt  BT_SEL 1 &bt  BT_SEL 2 &bt  BT_SEL 3 &bt  BT_SEL 4                                                                     &none             &none              &none            &none              &none            &none
+&bootloader   &sys_reset    &none         &out OUT_USB  &out OUT_BLE  &none         &bt BT_CLR                                         &none            &none             &none              &none            &none              &none            &trans
+&none         &none         &trans                      &trans        &trans        &trans        &trans                 &trans        &trans           &trans            &trans                              &kp  RCTRL         &none            &none
                         >;
 			
                         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
