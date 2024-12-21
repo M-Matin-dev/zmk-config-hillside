@@ -10,7 +10,6 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/backlight.h>
-#include <dt-bindings/zmk/rgb.h>
 
 #define DEFAULT_L 0
 #define NUM_NAV_L 1
@@ -129,16 +128,16 @@
                 adj_layer {
 /* ADJUST
  * -------------------------------------------------------------------------------------------------------------------------------------
- * |BT_CLR |DKNKT 0|DKNKT 1|DKNKT 2|DKNKT 3|DKNKT 4|-----------------------------------|RGB_TOG|RGB_EFF|RGB_EFR|       |       | BOOTL |
- * |OUT_BLE| BT 0  | BT 1  | BT 2  | BT 3  | BT 4  |-----------------------------------|RGB_HUI|RGB_SAI|RGB_BRI|RGB_SPI|       | RESET |
- * |OUT_USB| EP_OFF|BL_TOG |BL_INC |BL_DEC |       |       |-------------------| EP_ON |RGB_HUD|RGB_SAD|RGB_BRD|RGB_SPD|       |       |
+ * |BT_CLR |DKNKT 0|DKNKT 1|DKNKT 2|DKNKT 3|DKNKT 4|-----------------------------------| EP_ON |EP_OFF |       |       |       | BOOTL |
+ * |OUT_BLE| BT 0  | BT 1  | BT 2  | BT 3  | BT 4  |-----------------------------------|BL_TOG |BL_INC |BL_DEC |       |       | RESET |
+ * |OUT_USB|       |       |       |       |       |       |-------------------|       |       |       |       |       |       |       |
  * ----------------|       |-------|       |       |       |       |---|       |       |       |       |-------|       |----------------
  */       
                         bindings = <
-&bt BT_CLR    &bt BT_DISC 0     &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3 &bt BT_DISC 4                                                                         &rgb_ung RGB_TOG     &rgb_ung RGB_EFF     &rgb_ung RGB_EFR     &none                &none      &bootloader 
-&out OUT_BLE  &bt BT_SEL 0      &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                                                                          &rgb_ung RGB_HUI     &rgb_ung RGB_SAI     &rgb_ung RGB_BRI     &rgb_ung RGB_SPI     &none      &sys_reset
-&out OUT_USB  &ext_power EP_OFF &bl BL_TOG    &bl BL_INC    &bl BL_DEC    &none                                                            &ext_power EP_ON     &rgb_ung RGB_HUD     &rgb_ung RGB_SAD     &rgb_ung RGB_BRD     &rgb_ung RGB_SPD     &none      &none
-&none         &none             &none                       &none         &none         &none         &none                  &none         &none                &none                &none                                     &none                &none      &none
+&bt BT_CLR    &bt BT_DISC 0     &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3 &bt BT_DISC 4                                                              &ext_power EP_ON    &ext_power EP_OFF    &none       &none     &none      &bootloader 
+&out OUT_BLE  &bt BT_SEL 0      &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                                                               &bl BL_TOG          &bl BL_INC           &bl BL_DEC  &none     &none      &sys_reset
+&out OUT_USB  &none             &none         &none         &none         &none         &none                                              &none     &none               &none                &none       &none     &none      &none
+&none         &none             &none                       &none         &none         &none         &none                  &none         &none     &none               &none                            &none     &none      &none
                         >;
 			
                         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
