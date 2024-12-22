@@ -132,8 +132,8 @@
                         bindings = <
 &bt BT_CLR    &bt BT_DISC 0     &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3 &bt BT_DISC 4                                                              &ext_power EP_ON    &ext_power EP_OFF    &none       &none     &none      &bootloader 
 &out OUT_BLE  &bt BT_SEL 0      &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                                                               &bl BL_TOG          &bl BL_INC           &bl BL_DEC  &none     &none      &sys_reset
-&out OUT_USB  &none             &none         &none         &none         &none         &none                                              &none     &none               &none                &none       &none     &none      &none
-&none         &none             &none                       &none         &none         &none         &none                  &none         &none     &none               &none                            &none     &none      &none
+&out OUT_USB  &none             &none         &none         &none         &none         &none                                              &kp S     &none               &none                &none       &none     &none      &none
+&bt BT_CLR_ALL &none            &none                       &none         &none         &none         &none                  &none         &none     &none               &none                            &none     &none      &none
                         >;
 			
                         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
