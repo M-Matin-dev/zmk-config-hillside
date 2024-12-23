@@ -4,6 +4,7 @@
 # control, add individual board + shield combinations to
 # the `include` property, e.g:
 #
+#
 # board: [ "nice_nano_v2" ]
 # shield: [ "corne_left", "corne_right" ]
 # include:
@@ -35,3 +36,4 @@ include:
     snippet: zmk-usb-logging
   - board: nice_nano_v2
     shield: hillside52_left
+    snippet: zmk-usb-logging
