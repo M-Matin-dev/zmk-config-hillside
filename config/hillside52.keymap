@@ -16,6 +16,7 @@
 #define SYM_L     2
 #define FN_L      3
 #define ADJ_L     4
+#define BT_L      5
 
 #define Undo   LC(Z)
 #define Cut    LC(X)
@@ -59,7 +60,7 @@
                         bindings = <
 &kp  ESC      &kp  Q        &kp  W        &kp  E        &kp  R        &kp  T                                                                         &kp  Y        &kp  U        &kp  I        &kp  O        &kp  P        &kp  BSPC
 &kp  TAB      &kp  A        &kp  S        &kp  D        &kp  F        &kp  G                                                                         &kp  H        &kp  J        &kp  K        &kp  L        &kp  SEMI     &kp  ENTER
-&kp  LSHFT    &kp  Z        &kp  X        &kp  C        &kp  V        &kp  B        &none                                              &none         &kp  N        &kp  M        &kp  COMMA    &kp  DOT      &kp  SLASH    &kp  RSHFT
+&kp  LSHFT    &kp  Z        &kp  X        &kp  C        &kp  V        &kp  B        &none                                              &mo BT_L      &kp  N        &kp  M        &kp  COMMA    &kp  DOT      &kp  SLASH    &kp  RSHFT
 &kp  LCTRL    &kp LGUI      &kp LALT                    &mo ADJ_L     &none         &kp SPACE      &mo NUM_NAV_L         &mo SYM_L     &mo FN_L      &kp DEL       &mo ADJ_L                   &kp  RALT     &kp  RGUI     &kp  LCTRL
                         >;
 			
@@ -135,6 +136,25 @@
 &out OUT_BLE     &bt BT_SEL 0      &bt BT_SEL 1       &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4                                                                        &bt BT_SEL 4    &bt BT_SEL 3    &bt BT_SEL 2    &bt BT_SEL 1       &bt BT_SEL 0       &out OUT_BLE  
 &out OUT_USB     &ext_power EP_ON  &ext_power EP_OFF  &bl BL_TOG      &bl BL_INC      &bl BL_DEC      &bootloader                                         &bootloader     &bl BL_DEC      &bl BL_INC      &bl BL_TOG      &ext_power EP_OFF  &ext_power EP_ON   &out OUT_USB
 &bt BT_CLR_ALL   &none             &sys_reset                         &kp A           &kp D           &kp J          &none                 &none          &kp J           &kp D           &kp A                           &sys_reset         &none              &bt BT_CLR_ALL
+                        >;
+			
+                        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+                };
+
+        
+                bt_layer {
+/* BLUETOOTH
+ * -------------------------------------------------------------------------------------------------------------------------------------
+ * |DKNKT 5|DKNKT 6|DKNKT 7|DKNKT 8|DKNKT 9|DKNKT10|-----------------------------------|DKNKT11|DKNKT12|DKNKT13|DKNKT14|DKNKT15|DKNKT16|
+ * | BT 5  | BT 6  | BT 7  | BT 8  | BT 9  | BT 10 |-----------------------------------| BT 11 | BT 12 | BT 13 | BT 14 | BT 15 | BT 16 |
+ * |       |       |       |       |       |       |       |-------------------|       |       |       |       |       |       |       |
+ * |-------|       |-------|       |       |       |       |       |---|       |       |       |-------|       |-------|       |       |
+ */       
+                        bindings = <
+&bt BT_DISC 5     &bt BT_DISC 6      &bt BT_DISC 7   &bt BT_DISC 8   &bt BT_DISC 9   &bt BT_DISC 10                                                                       &bt BT_DISC 11    &bt BT_DISC 12     &bt BT_DISC 13  &bt BT_DISC 14  &bt BT_DISC 15  &bt BT_DISC 16      
+&bt BT_SEL 5      &bt BT_SEL 6       &bt BT_SEL 7    &bt BT_SEL 8    &bt BT_SEL 9    &bt BT_SEL 10                                                                        &bt BT_SEL 11     &bt BT_SEL 12      &bt BT_SEL 13   &bt BT_SEL 14   &bt BT_SEL 15   &bt BT_SEL 16      
+&kp B             &kp L              &kp U           &none           &none           &none            &none                                               &none           &kp B             &kp L              &kp U           &none           &none           &none               
+&none             &none              &none                           &none           &none            &none          &none                 &none          &none           &none             &none                              &none           &none           &none               
                         >;
 			
                         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
