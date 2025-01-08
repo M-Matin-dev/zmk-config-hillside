@@ -30,4 +30,8 @@ if SHIELD_HILLSIDE52_LEFT || SHIELD_HILLSIDE52_RIGHT
 config ZMK_SPLIT
     default y
 
+config ZMK_RGB_UNDERGLOW
+  select WS2812_STRIP
+  select SPI
+
 endif

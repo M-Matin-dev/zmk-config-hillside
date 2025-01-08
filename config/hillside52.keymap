@@ -135,7 +135,7 @@
 &bt BT_CLR       &bt BT_DISC 0     &bt BT_DISC 1      &bt BT_DISC 2   &bt BT_DISC 3   &bt BT_DISC 4                                                                       &bt BT_DISC 4   &bt BT_DISC 3   &bt BT_DISC 2   &bt BT_DISC 1      &bt BT_DISC 0      &bt BT_CLR    
 &out OUT_BLE     &bt BT_SEL 0      &bt BT_SEL 1       &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4                                                                        &bt BT_SEL 4    &bt BT_SEL 3    &bt BT_SEL 2    &bt BT_SEL 1       &bt BT_SEL 0       &out OUT_BLE  
 &out OUT_USB     &ext_power EP_ON  &ext_power EP_OFF  &bl BL_TOG      &bl BL_INC      &bl BL_DEC      &bootloader                                         &bootloader     &bl BL_DEC      &bl BL_INC      &bl BL_TOG      &ext_power EP_OFF  &ext_power EP_ON   &out OUT_USB
-&bt BT_CLR_ALL   &none             &sys_reset                         &kp A           &kp D           &kp J          &none                 &none          &kp J           &kp D           &kp A                           &sys_reset         &none              &bt BT_CLR_ALL
+&bt BT_CLR_ALL   &none             &sys_reset                         &kp A           &kp D           &kp J          &none                 &studio_unlock &kp J           &kp D           &kp A                           &sys_reset         &none              &bt BT_CLR_ALL
                         >;
 			
                         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
