@@ -7,10 +7,14 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include "hillside52-layouts.dtsi"
 
+&hillside_layout {
+    transform = <&default_transform>;
+};
+
 / {
     chosen {
         zmk,kscan = &kscan0;
-        zmk,physical-layout = &matrix_physical_layout;
+        zmk,physical-layout = &hillside_layout;
      // zmk,matrix_transform = &default_transform;
     };
 
@@ -32,7 +36,7 @@ RC(3,0) RC(3,1) RC(3,2)         RC(4,1) RC(4,2) RC(4,3) RC(4,4)   RC(4,7) RC(4,8
 
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
-        label = "KSCAN";
+        wakeup-source;
 
         diode-direction = "col2row";
         row-gpios

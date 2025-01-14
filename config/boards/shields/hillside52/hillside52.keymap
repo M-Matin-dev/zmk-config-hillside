@@ -60,8 +60,8 @@
                         bindings = <
 &kp  ESC      &kp  Q        &kp  W        &kp  E        &kp  R        &kp  T                                                                         &kp  Y        &kp  U        &kp  I        &kp  O        &kp  P        &kp  BSPC
 &kp  TAB      &kp  A        &kp  S        &kp  D        &kp  F        &kp  G                                                                         &kp  H        &kp  J        &kp  K        &kp  L        &kp  SEMI     &kp  ENTER
-&kp  LSHFT    &kp  Z        &kp  X        &kp  C        &kp  V        &kp  B        &none                                              &mo BT_L      &kp  N        &kp  M        &kp  COMMA    &kp  DOT      &kp  SLASH    &kp  RSHFT
-&kp  LCTRL    &kp LGUI      &kp LALT                    &mo ADJ_L     &none         &kp SPACE      &mo NUM_NAV_L         &mo SYM_L     &mo FN_L      &kp DEL       &mo ADJ_L                   &kp  RALT     &kp  RGUI     &kp  LCTRL
+&kp  LSHFT    &kp  Z        &kp  X        &kp  C        &kp  V        &kp  B        &mo BT_L                                           &mo ADJ_L     &kp  N        &kp  M        &kp  COMMA    &kp  DOT      &kp  SLASH    &kp  RSHFT
+&kp  LCTRL    &kp LGUI      &kp LALT                    &mo NUM_NAV_L &none         &kp SPACE      &mo SYM_L             &mo SYM_L     &mo FN_L      &kp DEL       &mo NUM_NAV_L               &kp  RALT     &kp  RGUI     &kp  LCTRL
                         >;
 			
                         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -135,7 +135,7 @@
 &bt BT_CLR       &bt BT_DISC 0     &bt BT_DISC 1      &bt BT_DISC 2   &bt BT_DISC 3   &bt BT_DISC 4                                                                       &bt BT_DISC 4   &bt BT_DISC 3   &bt BT_DISC 2   &bt BT_DISC 1      &bt BT_DISC 0      &bt BT_CLR    
 &out OUT_BLE     &bt BT_SEL 0      &bt BT_SEL 1       &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4                                                                        &bt BT_SEL 4    &bt BT_SEL 3    &bt BT_SEL 2    &bt BT_SEL 1       &bt BT_SEL 0       &out OUT_BLE  
 &out OUT_USB     &ext_power EP_ON  &ext_power EP_OFF  &bl BL_TOG      &bl BL_INC      &bl BL_DEC      &bootloader                                         &bootloader     &bl BL_DEC      &bl BL_INC      &bl BL_TOG      &ext_power EP_OFF  &ext_power EP_ON   &out OUT_USB
-&bt BT_CLR_ALL   &none             &sys_reset                         &kp A           &kp D           &kp J          &none                 &studio_unlock &kp J           &kp D           &kp A                           &sys_reset         &none              &bt BT_CLR_ALL
+&bt BT_CLR_ALL   &none             &sys_reset                         &kp A           &kp D           &kp J          &studio_unloc         &studio_unlock &kp J           &kp D           &kp A                           &sys_reset         &none              &bt BT_CLR_ALL
                         >;
 			
                         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -145,7 +145,7 @@
                 bt_layer {
 /* BLUETOOTH
  * -------------------------------------------------------------------------------------------------------------------------------------
- * |DKNKT 5|DKNKT 6|DKNKT 7|DKNKT 8|DKNKT 9|DKNKT10|-----------------------------------|DKNKT11|DKNKT12|DKNKT13|DKNKT14|DKNKT15|DKNKT16|
+ * |DKNKT 3|DKNKT 6|DKNKT 7|DKNKT 8|DKNKT 9|DKNKT10|-----------------------------------|DKNKT11|DKNKT12|DKNKT13|DKNKT14|DKNKT15|DKNKT16|
  * | BT 5  | BT 6  | BT 7  | BT 8  | BT 9  | BT 10 |-----------------------------------| BT 11 | BT 12 | BT 13 | BT 14 | BT 15 | BT 16 |
  * |       |       |       |       |       |       |       |-------------------|       |       |       |       |       |       |       |
  * |-------|       |-------|       |       |       |       |       |---|       |       |       |-------|       |-------|       |       |

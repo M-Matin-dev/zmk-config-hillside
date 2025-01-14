@@ -1,12 +1,12 @@
 #include <physical_layouts.dtsi>
 
 / {
-    matrix_physical_layout: matrix_physical_layout {
+    hillside_layout: hillside_layout {
         compatible = "zmk,physical-layout";
-        display-name = "LAYOUT";
+        display-name = "Hillside";
 
-        kscan = <&kscan0>;
-        transform = <&default_transform>;
+        /// kscan = <&kscan0>;
+        /// transform = <&default_transform>;
 
         keys  //                     w   h    x    y     rot    rx    ry
             = <&key_physical_attrs 100 100    0  113       0     0     0>
