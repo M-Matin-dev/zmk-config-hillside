@@ -11,8 +11,6 @@
 };
 
 &kscan0 {
-    // debounce-press-ms = <10>;
-    // debounce-release-ms = <3>;
     col-gpios
         = <&pro_micro 10 GPIO_ACTIVE_HIGH> // col5 in the schematic
         , <&pro_micro 16 GPIO_ACTIVE_HIGH> // col4 in the schematic
