@@ -153,10 +153,10 @@
  * |-------|       |-------|       |       |       |       |       |---|       |       |       |-------|       |-------|       |       |
  */       
                         bindings = <
-&bt BT_DISC 5     &bt BT_DISC 6      &bt BT_DISC 7   &bt BT_DISC 8   &bt BT_DISC 9   &bt BT_DISC 10                                                                       &bt BT_DISC 11    &bt BT_DISC 12     &bt BT_DISC 13  &bt BT_DISC 14  &bt BT_DISC 15  &bt BT_DISC 16      
-&bt BT_SEL 5      &bt BT_SEL 6       &bt BT_SEL 7    &bt BT_SEL 8    &bt BT_SEL 9    &bt BT_SEL 10                                                                        &bt BT_SEL 11     &bt BT_SEL 12      &bt BT_SEL 13   &bt BT_SEL 14   &bt BT_SEL 15   &bt BT_SEL 16      
-&kp B             &kp L              &kp U           &none           &none           &none            &none                                               &none           &kp B             &kp L              &kp U           &none           &none           &none               
-&none             &none              &none                           &none           &none            &none          &none                 &none          &none           &none             &none                              &none           &none           &none               
+&bt BT_DISC 5     &bt BT_DISC 6      &bt BT_DISC 7   &bt BT_DISC 8   &bt BT_DISC 9   &bt BT_DISC 10                                                                       &rgb_ug RGB_HUI   &rgb_ug RGB_HUD    &bt BT_DISC 13  &bt BT_DISC 14  &bt BT_DISC 15  &rgb_ug RGB_TOG
+&bt BT_SEL 5      &bt BT_SEL 6       &bt BT_SEL 7    &bt BT_SEL 8    &bt BT_SEL 9    &bt BT_SEL 10                                                                        &rgb_ug RGB_SAI   &rgb_ug RGB_SAD    &bt BT_SEL 13   &bt BT_SEL 14   &bt BT_SEL 15   &rgb_ug RGB_EFF
+&kp B             &kp L              &kp U           &none           &none           &none            &none                                               &none           &rgb_ug RGB_BRI   &rgb_ug RGB_BRD    &kp U           &none           &none           &rgb_ug RGB_EFR
+&none             &none              &none                           &none           &none            &none          &none                 &none          &none           &none             &none                              &none           &rgb_ug RGB_SPI &rgb_ug RGB_SPD
                         >;
 			
                         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
