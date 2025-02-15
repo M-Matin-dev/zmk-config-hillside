@@ -133,7 +133,7 @@
  * |BT_CLRA|-------| RESET |-------|       |       |       |       |---|       |       |       |       |-------|-------|RGB_SPI|RGB_SPD|
  */
                         bindings = <
-&bt BT_CLR       &bt BT_DISC 0     &bt BT_DISC 1      &bt BT_DISC 2   &bt BT_DISC 3   &bt BT_DISC 4                                                                       &rgb_ug RGB_HUI &rgb_ug RGB_HUD &none                              &none                              &none                              &rgb_ug RGB_TOG
+&bt BT_CLR       &bt BT_DISC 0     &bt BT_DISC 1      &bt BT_DISC 2   &bt BT_DISC 3   &bt BT_DISC 4                                                                       &rgb_ug RGB_HUI &rgb_ug RGB_HUD &rgb_ug RGB_COLOR_HSB(0,100,100)   &none                              &none                              &rgb_ug RGB_TOG
 &out OUT_BLE     &bt BT_SEL 0      &bt BT_SEL 1       &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4                                                                        &rgb_ug RGB_SAI &rgb_ug RGB_SAD &none                              &none                              &none                              &rgb_ug RGB_EFF
 &out OUT_USB     &ext_power EP_ON  &ext_power EP_OFF  &none           &none           &none          &mo BT_L                                             &mo BT_L        &rgb_ug RGB_BRI &rgb_ug RGB_BRD &none                              &none                              &none                              &rgb_ug RGB_EFR
 &bt BT_CLR_ALL   &none             &sys_reset                         &kp A           &kp D          &kp J          &studio_unlock         &studio_unlock &kp J           &kp D           &kp A                                              &none                              &rgb_ug RGB_SPI                    &rgb_ug RGB_SPD
@@ -152,8 +152,8 @@
  * |-------|       |-------|       |       |       |       |       |---|       |       |       |-------|       |-------|       |       |
  */
                         bindings = <
-&bt BT_DISC 5     &bt BT_DISC 6      &bt BT_DISC 7   &bt BT_DISC 8   &bt BT_DISC 9   &bt BT_DISC 10                                                                       &bt BT_DISC 11    &bt BT_DISC 12     &bt BT_DISC 13  &bt BT_DISC 14  &bt BT_DISC 15  &bt BT_DISC 16
-&bt BT_SEL 5      &bt BT_SEL 6       &bt BT_SEL 7    &bt BT_SEL 8    &bt BT_SEL 9    &bt BT_SEL 10                                                                        &bt BT_SEL 11     &bt BT_SEL 12      &bt BT_SEL 13   &bt BT_SEL 14   &bt BT_SEL 15   &bt BT_SEL 16
+&bt BT_DISC 5      &bt BT_DISC 6       &bt BT_DISC 7    &bt BT_DISC 8    &bt BT_DISC 9    &bt BT_DISC 10                                                                        &bt BT_DISC 11     &bt BT_DISC 12      &bt BT_DISC 13   &bt BT_DISC 14   &bt BT_DISC 15   &bt BT_DISC 16
+&bt BT_SEL 5       &bt BT_SEL 6        &bt BT_SEL 7     &bt BT_SEL 8     &bt BT_SEL 9     &bt BT_SEL 10                                                                         &bt BT_SEL 11      &bt BT_SEL 12       &bt BT_SEL 13    &bt BT_SEL 14    &bt BT_SEL 15    &bt BT_SEL 16
 &kp B              &kp L               &kp U            &none            &none            &none             &bootloader                                         &bootloader     &kp B              &kp L               &kp U            &none            &none            &none
 &none              &none               &none                             &none            &none             &none          &none                 &none          &none           &none              &none                                &none            &none            &none
                         >;

@@ -152,8 +152,8 @@
  * |-------|       |-------|       |       |       |       |       |---|       |       |       |-------|       |-------|       |       |
  */
                         bindings = <
-&bt BT_DISC 5     &bt BT_DISC 6      &bt BT_DISC 7   &bt BT_DISC 8   &bt BT_DISC 9   &bt BT_DISC 10                                                                       &bt BT_DISC 11    &bt BT_DISC 12     &bt BT_DISC 13  &bt BT_DISC 14  &bt BT_DISC 15  &bt BT_DISC 16
-&bt BT_SEL 5      &bt BT_SEL 6       &bt BT_SEL 7    &bt BT_SEL 8    &bt BT_SEL 9    &bt BT_SEL 10                                                                        &bt BT_SEL 11     &bt BT_SEL 12      &bt BT_SEL 13   &bt BT_SEL 14   &bt BT_SEL 15   &bt BT_SEL 16
+&bt BT_DISC 5      &bt BT_DISC 6       &bt BT_DISC 7    &bt BT_DISC 8    &bt BT_DISC 9    &bt BT_DISC 10                                                                        &bt BT_DISC 11     &bt BT_DISC 12      &bt BT_DISC 13   &bt BT_DISC 14   &bt BT_DISC 15   &bt BT_DISC 16
+&bt BT_SEL 5       &bt BT_SEL 6        &bt BT_SEL 7     &bt BT_SEL 8     &bt BT_SEL 9     &bt BT_SEL 10                                                                         &bt BT_SEL 11      &bt BT_SEL 12       &bt BT_SEL 13    &bt BT_SEL 14    &bt BT_SEL 15    &bt BT_SEL 16
 &kp B              &kp L               &kp U            &none            &none            &none             &bootloader                                         &bootloader     &kp B              &kp L               &kp U            &none            &none            &none
 &none              &none               &none                             &none            &none             &none          &none                 &none          &none           &none              &none                                &none            &none            &none
                         >;
