@@ -1,20 +1,6 @@
 # Copyright (c) 2021-2022 The ZMK Contributors
 # SPDX-License-Identifier: MIT
 
-# if SHIELD_HILLSIDE52_LEFT
-
-# config ZMK_KEYBOARD_NAME
-#     default "Hillside52_L"
-
-# endif
-
-# if SHIELD_HILLSIDE52_RIGHT
-
-# config ZMK_KEYBOARD_NAME
-#     default "Hillside52_R"
-
-# endif
-
 if SHIELD_HILLSIDE52_LEFT
 
 config ZMK_KEYBOARD_NAME
@@ -30,8 +16,51 @@ if SHIELD_HILLSIDE52_LEFT || SHIELD_HILLSIDE52_RIGHT
 config ZMK_SPLIT
     default y
 
-config ZMK_RGB_UNDERGLOW
-  select WS2812_STRIP
-  select SPI
+if ZMK_DISPLAY
+    # This conditional block is executed if the ZMK_DISPLAY option is enabled
+    # ZMK_DISPLAY enables the OLED display functionality for the keyboard
+
+config I2C
+    default y
+    # Enables I2C (Inter-Integrated Circuit) communication protocol
+    # This is required for the OLED display which connects via I2C
+
+config SSD1306
+    default y
+    # Enables the SSD1306 OLED display driver
+    # SSD1306 is the specific controller chip used in the Corne's OLED displays
+
+endif # ZMK_DISPLAY
+
+if LVGL
+    # This conditional block is executed if LVGL (Light and Versatile Graphics Library) is enabled
+    # LVGL is the graphics library used to render content on the display
+
+config LV_Z_VDB_SIZE
+    default 64
+    # Sets the Virtual Display Buffer size to 64 bytes
+    # This buffer is used for rendering graphics before sending to the display
+    # A smaller buffer uses less RAM but may require more frequent updates
+
+config LV_DPI_DEF
+    default 148
+    # Sets the Dots Per Inch (DPI) to 148
+    # This affects how LVGL calculates sizes and positions of UI elements
+    # Optimized for the small OLED displays used on the Corne
+
+config LV_Z_BITS_PER_PIXEL
+    default 1
+    # Sets the color depth to 1 bit per pixel (monochrome/black and white)
+    # This is appropriate for the monochrome OLED displays on the Corne
+    # Reduces memory usage compared to higher color depths
+
+choice LV_COLOR_DEPTH
+    default LV_COLOR_DEPTH_1
+    # Sets the default color depth option to 1-bit (black and white)
+    # This is consistent with the LV_Z_BITS_PER_PIXEL setting above
+    # Ensures the display uses minimal memory while still being functional
+endchoice
+
+endif # LVGL
 
 endif
