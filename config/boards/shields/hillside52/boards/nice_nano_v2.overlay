@@ -25,6 +25,16 @@
     };
 };
 
+/ {
+    chosen {
+        zmk,display = &nice_view;
+    };
+};
+
+nice_view_spi: &spi3 {
+    cs-gpios = <&gpio0 6 GPIO_ACTIVE_LOW>;
+}; 
+
 &spi3 {
     compatible = "nordic,nrf-spim";
     status = "okay";
