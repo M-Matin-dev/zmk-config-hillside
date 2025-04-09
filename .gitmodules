@@ -1,0 +1,3 @@
+[submodule "zmk-nice-oled"]
+	path = zmk-nice-oled
+	url = https://github.com/M-Matin-dev/zmk-nice-oled
