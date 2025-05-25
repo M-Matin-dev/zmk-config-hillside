@@ -15,7 +15,7 @@
     chosen {
         zmk,kscan = &kscan0;
         zmk,physical-layout = &hillside_layout;
-     // zmk,matrix_transform = &default_transform;
+     // zmk,matrix_transform = &default_transform; // needed to remove to enable zmk studio support
     };
 
     default_transform: default_transform {
