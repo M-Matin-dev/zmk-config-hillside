@@ -58,11 +58,12 @@
  * | SHIFT |   Z   |   X   |   C   |   V   |   B   |  ???  |-------------------|  ???  |   N   |   M   |   ,   |   .   |   /   | SHIFT |
  * | CTRL  |  GUI  |  ALT  |-------|ADJUST |  ???  | SPACE |NUM_NAV|---|SYMBOL |FUNCTON|DELETE |ADJUST |-------|  ALT  |  GUI  | CTRL  |
  */
+                        display-name = "Default";
                         bindings = <
 &kp  ESC      &kp  Q        &kp  W        &kp  E        &kp  R        &kp  T                                                                                             &kp  Y              &kp  U        &kp  I        &kp  O        &kp  P        &kp  BSPC
 &kp  TAB      &kp  A        &kp  S        &kp  D        &kp  F        &kp  G                                                                                             &kp  H              &kp  J        &kp  K        &kp  L        &kp  SEMI     &kp  ENTER
 &kp  LSHFT    &kp  Z        &kp  X        &kp  C        &kp  V        &kp  B        &mo ADJ_L                                                        &mo ADJ_L           &kp  N              &kp  M        &kp  COMMA    &kp  DOT      &kp  SLASH    &kp  RSHFT
-&kp  LCTRL    &kp LGUI      &kp LALT                    &none         &lt FN_L DEL  &lt SYM_L SPACE  &lt NUM_NAV_L BSPC         &lt NUM_NAV_L ENTER  &lt SYM_L SPACE     &lt FN_L DEL        &none                       &kp  RALT     &kp  RGUI     &kp  LCTRL
+&kp  LCTRL    &kp LGUI      &kp LALT                    &mo FN_L      &kp DEL       &lt SYM_L SPACE  &lt NUM_NAV_L BSPC         &lt NUM_NAV_L ENTER  &lt SYM_L SPACE     &kp DEL             &mo FN_L                    &kp  RALT     &kp  RGUI     &kp  LCTRL
                         >;
 	
                         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -76,6 +77,7 @@
  * | trans |       |   1   |   2   |   3   |       |  ???  |-------------------|  ???  | HOME  | PG DN | PG UP |  END  |       | trans |
  * | trans | trans | trans |-------|       |       | trans |  ???  |---|  ???  |  ???  |  ???  |  ???  |-------| trans | trans | trans |
  */
+                        display-name = "Num/Nav";
                         bindings = <
 &trans        &none         &kp  N7       &kp  N8       &kp  N9       &none                                                                          &kp K_CMENU   &kp INSERT    &kp PSCRN     &kp SLCK      &kp PAUSE_BREAK &trans
 &trans        &kp DOT       &kp  N4       &kp  N5       &kp  N6       &kp  N0                                                                        &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp CAPS      &trans
@@ -94,6 +96,7 @@
  * | trans |   "   |   !   |   @   |   #   |       |       |-------------------|       |   |   |   +   |   <   |   >   |   /   | trans |
  * | trans | trans | trans |-------|       |       | trans |       |---|       |       |       |       |-------| trans | trans | trans |
  */
+                        display-name = "Symbol";
                         bindings = <
 &trans         &kp GRAVE    &kp AMPS      &kp ASTRK     &kp LPAR      &none                                                                         &kp UNDER     &kp MINUS     &kp LPAR      &kp RPAR      &kp EQUAL     &trans
 &trans         &kp SQT      &kp DLLR      &kp PRCNT     &kp CARET     &none                                                                         &kp LBKT      &kp RBKT      &kp LBRC      &kp RBRC      &kp BSLH      &trans
@@ -112,6 +115,7 @@
  * | trans |       |  F1   |  F2   |  F3   |       |  ???  |-------------------|  ???  |       |  F11  |  F12  |  F13  |  F22  | trans |
  * | trans | trans | trans |-------|       |       | trans |  ???  |---|  ???  |  ???  |  ???  |  ???  |-------| trans | trans | trans |
  */
+                        display-name = "Function";
                         bindings = <
 &trans        &none         &kp F7        &kp F8        &kp F9        &none                                                                          &none         &kp F17       &kp F18       &kp F19       &kp F24       &trans
 &trans        &none         &kp F4        &kp F5        &kp F6        &kp F10                                                                        &kp F20       &kp F14       &kp F15       &kp F16       &kp F23       &trans
@@ -132,6 +136,7 @@
  * |OUT_USB| EP_ON |EP_OFF |BL_TOG |BL_INC |BL_DEC | BOOTL |-------------------| BOOTL |RGB_BRI|RGB_BRD|Purple | Pink  | Teal  |RGB_EFR|
  * |BT_CLRA|-------| RESET |-------|       |       |       |       |---|       |       |       |       |-------|-------|RGB_SPI|RGB_SPD|
  */
+                        display-name = "Adjust";
                         bindings = <
 &bt BT_CLR       &bt BT_DISC 0     &bt BT_DISC 1      &bt BT_DISC 2   &bt BT_DISC 3   &bt BT_DISC 4                                                                       &rgb_ug RGB_HUI &rgb_ug RGB_HUD &rgb_ug RGB_COLOR_HSB(0,100,100)   &none                              &none                              &rgb_ug RGB_TOG
 &out OUT_BLE     &bt BT_SEL 0      &bt BT_SEL 1       &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4                                                                        &rgb_ug RGB_SAI &rgb_ug RGB_SAD &none                              &none                              &none                              &rgb_ug RGB_EFF
@@ -151,6 +156,7 @@
  * |       |       |       |       |       |       |       |-------------------|       |       |       |       |       |       |       |
  * |-------|       |-------|       |       |       |       |       |---|       |       |       |-------|       |-------|       |       |
  */
+                        display-name = "Bluetooth";
                         bindings = <
 &bt BT_DISC 5      &bt BT_DISC 6       &bt BT_DISC 7    &bt BT_DISC 8    &bt BT_DISC 9    &bt BT_DISC 10                                                                        &bt BT_DISC 11     &bt BT_DISC 12      &bt BT_DISC 13   &bt BT_DISC 14   &bt BT_DISC 15   &bt BT_DISC 16
 &bt BT_SEL 5       &bt BT_SEL 6        &bt BT_SEL 7     &bt BT_SEL 8     &bt BT_SEL 9     &bt BT_SEL 10                                                                         &bt BT_SEL 11      &bt BT_SEL 12       &bt BT_SEL 13    &bt BT_SEL 14    &bt BT_SEL 15    &bt BT_SEL 16
