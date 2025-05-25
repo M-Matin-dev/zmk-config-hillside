@@ -17,7 +17,7 @@
 #define SYM_L     2
 #define FN_L      3
 #define ADJ_L     4
-#define BT_L      5
+#define SYSTEM_L  5
 #define SWEDISH_L 6
 #define PERSIAN_L 7
 
@@ -563,17 +563,17 @@
                 adj_layer {
 /* ADJUST
  * -------------------------------------------------------------------------------------------------------------------------------------
- * |BT_CLR |DKNKT 0|DKNKT 1|DKNKT 2|DKNKT 3|DKNKT 4|-----------------------------------|RGB_HUI|RGB_HUD|  Red  |Orange |Yellow |RGB_TOG|
- * |OUT_BLE| BT 0  | BT 1  | BT 2  | BT 3  | BT 4  |-----------------------------------|RGB_SAI|RGB_SAD| Green | Cyan  | Blue  |RGB_EFF|
- * |OUT_USB| EP_ON |EP_OFF |BL_TOG |BL_INC |BL_DEC | BOOTL |-------------------| BOOTL |RGB_BRI|RGB_BRD|Purple | Pink  | Teal  |RGB_EFR|
- * |BT_CLRA|-------| RESET |-------|       |       |       |       |---|       |       |       |       |-------|-------|RGB_SPI|RGB_SPD|
+ * |BT_DC0 |BT_DC1 |BT_DC2 |BT_DC3 |BT_DC4 |BT_DC5 |-----------------------------------|BT_DC6 |BT_DC7 |BT_DC8 |BT_DC9 |BT_DC10|BT_DC11|
+ * |BT_SL0 |BT_SL1 |BT_SL2 |BT_SL3 |BT_SL4 |BT_SL5 |-----------------------------------|BT_SL6 |BT_SL7 |BT_SL8 |BT_SL9 |BT_SL10|BT_SL11|
+ * |       |       |       |       | EP_ON |OUT_BLE|SOFT_OF|-------------------|SOFT_OF|OUT_USB| EP_OFF|       |       |       |       |
+ * |       |       |       |-------|   A   |   D   |   J   |SYSTEM |---|SYSTEM |   J   |   D   |   A   |-------|       |       |       |
  */
                         display-name = "Adjust";
                         bindings = <
-&bt BT_CLR       &bt BT_DISC 0     &bt BT_DISC 1      &bt BT_DISC 2   &bt BT_DISC 3   &bt BT_DISC 4                                                                       &rgb_ug RGB_HUI &rgb_ug RGB_HUD &rgb_ug RGB_COLOR_HSB(0,100,100)   &none                              &none                              &rgb_ug RGB_TOG
-&out OUT_BLE     &bt BT_SEL 0      &bt BT_SEL 1       &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4                                                                        &rgb_ug RGB_SAI &rgb_ug RGB_SAD &none                              &none                              &none                              &rgb_ug RGB_EFF
-&out OUT_USB     &ext_power EP_ON  &ext_power EP_OFF  &none           &none           &none          &mo BT_L                                             &mo BT_L        &rgb_ug RGB_BRI &rgb_ug RGB_BRD &none                              &none                              &none                              &rgb_ug RGB_EFR
-&bt BT_CLR_ALL   &none             &sys_reset                         &kp A           &kp D          &kp J          &studio_unlock         &studio_unlock &kp J           &kp D           &kp A                                              &none                              &rgb_ug RGB_SPI                    &rgb_ug RGB_SPD
+&bt BT_DISC 0   &bt BT_DISC 1  &bt BT_DISC 2   &bt BT_DISC 3  &bt BT_DISC 4     &bt BT_DISC 5                                                         &bt BT_DISC 6  &bt BT_DISC 7      &bt BT_DISC 8  &bt BT_DISC 9 &bt BT_DISC 10  &bt BT_DISC 11      
+&bt BT_SEL 0    &bt BT_SEL 1   &bt BT_SEL 2    &bt BT_SEL 3   &bt BT_SEL 4      &bt BT_SEL 5                                                          &bt BT_SEL 6   &bt BT_SEL 7       &bt BT_SEL 8   &bt BT_SEL 9  &bt BT_SEL 10   &bt BT_SEL 11      
+&none           &none          &none           &none          &ext_power EP_ON  &out OUT_BLE   &soft_off                                   &soft_off  &out OUT_USB   &ext_power EP_OFF  &none          &none         &none           &none
+&none           &none          &none                          &kp A             &kp D          &kp J      &mo SYSTEM_L     &mo SYSTEM_L    &kp J      &kp D          &kp A                             &none         &none           &none
                         >;
 
                         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -581,19 +581,19 @@
 
 
                 bt_layer {
-/* BLUETOOTH
+/* SYSTEM
  * -------------------------------------------------------------------------------------------------------------------------------------
- * |DKNKT 3|DKNKT 6|DKNKT 7|DKNKT 8|DKNKT 9|DKNKT10|-----------------------------------|DKNKT11|DKNKT12|DKNKT13|DKNKT14|DKNKT15|DKNKT16|
- * | BT 5  | BT 6  | BT 7  | BT 8  | BT 9  | BT 10 |-----------------------------------| BT 11 | BT 12 | BT 13 | BT 14 | BT 15 | BT 16 |
- * |       |       |       |       |       |       |       |-------------------|       |       |       |       |       |       |       |
- * |-------|       |-------|       |       |       |       |       |---|       |       |       |-------|       |-------|       |       |
+ * |BT_CLR |       |       |       |       |       |-----------------------------------|       |       |       |       |       |BT_CLR |
+ * |SYS_RST|       |       |       |       |       |-----------------------------------|       |       |       |       |       |SYS_RST|
+ * |BOOTLDR|       |       |       |       |       |       |-------------------|       |       |       |       |       |       |BOOTLDR|
+ * |       |       |       |-------|       |       |       |       |---|       |       |       |       |-------|       |       |       |
  */
-                        display-name = "Bluetooth";
+                        display-name = "System";
                         bindings = <
-&bt BT_DISC 5      &bt BT_DISC 6       &bt BT_DISC 7    &bt BT_DISC 8    &bt BT_DISC 9    &bt BT_DISC 10                                                                        &bt BT_DISC 11     &bt BT_DISC 12      &bt BT_DISC 13   &bt BT_DISC 14   &bt BT_DISC 15   &bt BT_DISC 16
-&bt BT_SEL 5       &bt BT_SEL 6        &bt BT_SEL 7     &bt BT_SEL 8     &bt BT_SEL 9     &bt BT_SEL 10                                                                         &bt BT_SEL 11      &bt BT_SEL 12       &bt BT_SEL 13    &bt BT_SEL 14    &bt BT_SEL 15    &bt BT_SEL 16
-&kp B              &kp L               &kp U            &none            &none            &none             &bootloader                                         &bootloader     &kp B              &kp L               &kp U            &none            &none            &none
-&none              &none               &none                             &none            &none             &none          &none                 &none          &none           &none              &none                                &none            &none            &none
+&bt BT_CLR   &none  &none  &none           &none           &none                                       &none             &none           &none  &none  &none        &bt BT_CLR
+&sys_reset   &none  &none  &none           &none           &none                                       &none             &none           &none  &none  &none        &sys_reset 
+&bootloader  &none  &none  &none           &none           &none           &none                &none  &none             &none           &none  &none  &none        &bootloader
+&none        &none  &none                  &none           &none           &none  &none  &none  &none  &none             &none                  &none  &none        &none
                         >;
 
                         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
