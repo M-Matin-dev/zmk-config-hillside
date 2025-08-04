@@ -11,7 +11,7 @@
         = <&pro_micro 19 GPIO_ACTIVE_HIGH> // col0 in the schematic
         , <&pro_micro 18 GPIO_ACTIVE_HIGH> // col1 in the schematic
         , <&gpio1 7 GPIO_ACTIVE_HIGH> // col2 in the schematic (P1.07 instead of P1.15)
-        , <&pro_micro 14 GPIO_ACTIVE_HIGH> // col3 in the schematic
+        , <&gpio1 2 GPIO_ACTIVE_HIGH> // col3 in the schematic
         , <&pro_micro 16 GPIO_ACTIVE_HIGH> // col4 in the schematic
         , <&pro_micro 10 GPIO_ACTIVE_HIGH> // col5 in the schematic
         ;
