@@ -6,6 +6,12 @@
 
 #include "hillside52.dtsi" 
 
+/ {
+    chosen {
+        zmk,split-role = "central";
+    };
+};
+
 &default_transform {
     col-offset = <6>;
 };
