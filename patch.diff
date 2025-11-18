@@ -1,0 +1,41 @@
+diff --git a/build.yaml b/build.yaml
+index 020cbce..0e8f262 100644
+--- a/build.yaml
++++ b/build.yaml
+@@ -19,9 +19,9 @@ include:
+ #   Comment out below if you do not have this board, to save build time
+   - board: nice_nano_v2
+     shield: hillside52_left nice_view_adapter hillside52_left nice_epaper
+-    snippet: studio-rpc-usb-uart
+-    cmake-args: "-DCONFIG_ZMK_STUDIO=y"
+   - board: nice_nano_v2
+     shield: hillside52_right nice_view_adapter hillside52_right nice_epaper
++    snippet: studio-rpc-usb-uart
++    cmake-args: "-DCONFIG_ZMK_STUDIO=y"
+   - board: nice_nano_v2
+     shield: settings_reset
+diff --git a/config/boards/shields/hillside52/Kconfig.defconfig b/config/boards/shields/hillside52/Kconfig.defconfig
+index 492a443..a2b1afe 100644
+--- a/config/boards/shields/hillside52/Kconfig.defconfig
++++ b/config/boards/shields/hillside52/Kconfig.defconfig
+@@ -1,7 +1,7 @@
+ # Copyright (c) 2021-2022 The ZMK Contributors
+ # SPDX-License-Identifier: MIT
+ 
+-if SHIELD_HILLSIDE52_LEFT
++if SHIELD_HILLSIDE52_RIGHT
+ 
+ config ZMK_KEYBOARD_NAME
+     default "Hillside52"
+diff --git a/config/hillside52.conf b/config/hillside52.conf
+index ecc2cda..9339bf9 100644
+--- a/config/hillside52.conf
++++ b/config/hillside52.conf
+@@ -29,3 +29,7 @@ CONFIG_ZMK_STUDIO_LOCKING=n
+ 
+ CONFIG_BT_MAX_CONN=17
+ CONFIG_BT_MAX_PAIRED=17
++
++# Enable split keyboard battery reporting
++CONFIG_ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING=y
++CONFIG_ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY=y
